@@ -1,0 +1,63 @@
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~$ mkdir -p robot-ws/src
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~$ mkdir -p robot_ws/src
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~$ cd  robot_ws
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws$ colcon build --symlink-install
+                     
+Summary: 0 packages finished [0.09s]
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws$ cd src
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws/src$ source /opt/ros/iron/setup.bash
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws/src$ ros2 pkg create --build-type ament_cmake my_package
+going to create a new package
+package name: my_package
+destination directory: /home/preethiveemuthukumarasamy/robot_ws/src
+package format: 3
+version: 0.0.0
+description: TODO: Package description
+maintainer: ['preethiveemuthukumarasamy <preethiveemuthukumarasamy@todo.todo>']
+licenses: ['TODO: License declaration']
+build type: ament_cmake
+dependencies: []
+creating folder ./my_package
+creating ./my_package/package.xml
+creating source and include folder
+creating folder ./my_package/src
+creating folder ./my_package/include/my_package
+creating ./my_package/CMakeLists.txt
+
+[WARNING]: Unknown license 'TODO: License declaration'.  This has been set in the package.xml, but no LICENSE file has been created.
+It is recommended to use one of the ament license identifiers:
+Apache-2.0
+BSL-1.0
+BSD-2.0
+BSD-2-Clause
+BSD-3-Clause
+GPL-3.0-only
+LGPL-3.0-only
+MIT
+MIT-0
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws/src$ git clone git@github.com:joshnewans/my_package.git
+fatal: destination path 'my_package' already exists and is not an empty directory.
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/robot_ws/src$ cd ../..
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~$ cd dev_ws
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/dev_ws$ colcon build --symlink-install
+Starting >>> my_package
+--- stderr: my_package                           
+CMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:100 (message):
+  ament_cmake_symlink_install_directory() can't find
+  '/home/preethiveemuthukumarasamy/dev_ws/src/my_package/launch'
+Call Stack (most recent call first):
+  ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:314 (ament_cmake_symlink_install_directory)
+  cmake_install.cmake:46 (include)
+
+
+---
+Failed   <<< my_package [0.62s, exited with code 1]
+
+Summary: 0 packages finished [0.73s]
+  1 package failed: my_package
+  1 package had stderr output: my_package
+preethiveemuthukumarasamy@preethiveemuthukumarasamy-Sword-15-A12UC:~/dev_ws$ colcon build --symlink-install
+Starting >>> my_package
+Finished <<< my_package [0.17s]                  
+
+Summary: 1 package finished [0.26s]
